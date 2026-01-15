@@ -1,4 +1,4 @@
-# 🔐 AI-Assisted Incident Triage in a Splunk SIEM Environment
+# AI-Assisted Incident Triage in a Splunk SIEM Environment
 
 ## Overview
 Modern security operations centers (SOCs) rely heavily on SIEM platforms to collect and analyze large volumes of security data from across an organization. While these systems are effective at centralizing logs and generating alerts, they often produce a high number of security notifications that require manual review. This can lead to alert fatigue, inconsistent triage decisions, and increased time to respond, especially when security analysts must quickly interpret complex log data under time pressure. As a result, the challenge is not always detecting suspicious activity, but efficiently understanding and prioritizing alerts once they occur. 
