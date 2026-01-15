@@ -86,7 +86,7 @@ Alerts are configured to trigger automatically when defined thresholds are met, 
 ## Attack Simulation
 To generate realistic security events, controlled adversarial activity is performed from the Kali Linux system:
 - SSH services are intentionally exposed
-- Brute-force authentication attempts are executed using common attack tools
+- Brute-force authentication attempts are executed using common attack tools such as Hydra
 - High-volume failed login events are generated and ingested into Splunk
 
 These attacks create meaningful detection data without impacting real systems.
