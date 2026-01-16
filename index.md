@@ -132,11 +132,6 @@ This demonstrates how SIEM, automation, and AI can work together in a modern SOC
 - AI does not directly access raw logs—only alert evidence
 - No claims are made regarding real-world accuracy or detection rates
 
-Future improvements could include:
-- SOAR-style response actions
-- Expanded detection coverage
-- Integration with additional alerting platforms
-
 ---
 
 ## Conclusion
