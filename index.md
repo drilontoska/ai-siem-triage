@@ -3,7 +3,7 @@
 ## Overview
 Modern security operations centers (SOCs) rely heavily on SIEM platforms to collect and analyze large volumes of security data from across an organization. While these systems are effective at centralizing logs and generating alerts, they often produce a high number of security notifications that require manual review. This can lead to alert fatigue, inconsistent triage decisions, and increased time to respond, especially when security analysts must quickly interpret complex log data under time pressure. As a result, the challenge is not always detecting suspicious activity, but efficiently understanding and prioritizing alerts once they occur. 
 
-Recent advances in artificial intelligence, particularly in large language models, present an opportunity to improve this stage of the security workflow. Rather than attempting to replace traditional detection logic, AI can be used to assist analysts by summarizing alert context, highlighting relevant evidence, and suggesting investigative next steps. When integrated carefully, AI can act as a decision-support tool that improves clarity and consistency without removing human oversight. 
+Recent advances in artificial intelligence present an opportunity to improve this stage of the security workflow. Rather than attempting to replace traditional detection logic, AI can be used to assist analysts by summarizing alert context, highlighting relevant evidence, and suggesting investigative next steps. When integrated carefully, AI can act as a decision-support tool that improves clarity and consistency without removing human oversight. 
 
 The goal of this project is to explore how AI can be integrated into a SIEM environment to support incident triage. Using Splunk as the SIEM platform, I will design a virtualized lab environment that reflects a small enterprise network, including a Windows Server configured with Active Directory and domain-joined Windows endpoints. This setup allows for the generation of realistic authentication, authorization, and administrative activity commonly seen in organizational environments. Within this lab, I will implement rule-based detections using SPL and develop an AI-assisted triage component that analyzes alert evidence and produces structured summaries and recommendations. The project focuses on improving analyst understanding and response efficiency rather than creating new detection mechanisms. 
 
@@ -11,9 +11,9 @@ The goal of this project is to explore how AI can be integrated into a SIEM envi
 
 ## Project Objectives
 - Build a realistic enterprise-style SOC lab using Active Directory and domain-joined endpoints
-- Generate authentic authentication and attack telemetry
+- Generate logs to work on by using Kali or locally
 - Detect suspicious behavior using rule-based SPL searches in Splunk
-- Automate alert handling using workflow orchestration
+- Automate alert handling using a workflow
 - Integrate AI to assist with alert summarization and triage recommendations
 - Demonstrate a modern SIEM + automation + AI workflow
 
@@ -47,7 +47,7 @@ The environment simulates a small enterprise network with centralized authentica
         Slack Alert Output
 
 
-Each component serves a distinct SOC function, mirroring how modern security teams operate in production environments.
+Each component serves a SOC function, mirroring how modern security teams operate in production environments.
 
 ---
 
@@ -59,6 +59,7 @@ Each component serves a distinct SOC function, mirroring how modern security tea
 - **Windows 10 Pro (2x)**
   - Domain-joined endpoints
   - User authentication and system activity generation
+  - Splunk Forwarder to send logs over to the server
 - **Ubuntu Server**
   - Hosts the n8n workflow automation platform
   - Acts as the automation and integration layer between Splunk and AI analysis
@@ -85,7 +86,7 @@ Alerts are configured to trigger automatically when defined thresholds are met, 
 
 ## Attack Simulation
 To generate realistic security events, controlled adversarial activity is performed from the Kali Linux system:
-- SSH services are intentionally exposed
+- SSH services are intentionally exposed on the PCs
 - Brute-force authentication attempts are executed using common attack tools such as Hydra
 - High-volume failed login events are generated and ingested into Splunk
 
@@ -131,6 +132,7 @@ This demonstrates how SIEM, automation, and AI can work together in a modern SOC
 - The lab environment is small-scale and not production-sized
 - AI does not directly access raw logs—only alert evidence
 - No claims are made regarding real-world accuracy or detection rates
+- Only network connected devices were used
 
 ---
 
